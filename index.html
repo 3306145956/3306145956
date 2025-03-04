@@ -1,89 +1,89 @@
  
-<！doctype html>
-<超文本标记语言>
-<头>
-    <标题>刘微生日快乐！</标题>
-    <风格>
-        身体 {
-            背景:线性梯度(45deg，#FF69B4，#FFB6C1);
-            显示:弯曲;
-            justify-content:中心;
-            对齐项目:中心;
-            高度:100VH;
-            边缘:0;
-            字体系列:'微软雅黑';
+<!DOCTYPE html>
+<html>
+<head>
+    <title>刘微生日快乐！</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #FF69B4, #FFB6C1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: '微软雅黑';
         }
-.容器 {
-            文本对齐:中心;
-            填充:30PX;
-            背景:RGBA(255,255,255,0.9);
-            边界半径:20PX;
-            箱形阴影:0 0 30PX RGBA(255,20,147,0.3);
+        .container {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255,20,147,0.3);
         }
-        H1 {
-            字体大小:2.5他们;
-            颜色：#FF1493；
-            动画:发出微弱的光 2s 无限的;
+        h1 {
+            font-size: 2.5em;
+            color: #FF1493;
+            animation: glow 2s infinite;
         }
-.姓名 {
-            字体大小:3他们;
-            颜色：#FF4500；
-            边缘:15PX 0;
-            文本阴影:2PX 2PX 4PX 粉红色;
+        .name {
+            font-size: 3em;
+            color: #FF4500;
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px pink;
         }
-        @keyframes 发出微弱的光 {
-            0% { 文本阴影:0 0 10PX#FF69B4；}
-            50% { 文本阴影:0 0 30PX#FF1493；}
-            100% { 文本阴影:0 0 10PX#FF69B4；}
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #FF69B4; }
+            50% { text-shadow: 0 0 30px #FF1493; }
+            100% { text-shadow: 0 0 10px #FF69B4; }
         }
-.红心 {
-            字体大小:2他们;
-            边缘:20PX;
+        .hearts {
+            font-size: 2em;
+            margin: 20px;
         }
-    </风格>
-</头>
-<身体>
-    <div 班级="容器">
-        <div 班级="红心">💖🎂🎁</div>
-        <div 班级="名称">刘 微</div>
-        <H1>生日快乐！</H1>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hearts">💖🎂🎁</div>
+        <div class="name">刘 微</div>
+        <h1>生日快乐！</h1>
         <p>愿你的每一天都充满阳光与欢笑</p>
-        <p>心想事成，永远十八岁！ ✨</p>
-        <按钮 onClick="showFireworks()" 风格="上边距:20PX;填充:10PX 20PX;背景：#FF69B4；边境:没有一个;颜色:白色的;边界半径:10PX;">
-            点击放烟花
-        </按钮>
+        <p>心想事成，永远十八岁！✨</p>
+        <button onclick="showFireworks()" style="margin-top:20px;padding:10px 20px;background:#FF69B4;border:none;color:white;border-radius:10px;">
+            点击绽放烟花
+        </button>
     </div>
 
-    <脚本>
-        功能 showFireworks() {
-            Const 颜色=['#FF1493','#FF4500','#FFD700'];
-            为(让 我=0;我<50;我++) {
-                Const 颗粒=文件.createElement('div');
-                颗粒.风格=`
-位置：固定；
-左：${数学.随机()*100}%;
-顶端：${数学.随机()*100}%;
-宽度：5px；
-高度：5px；
-背景：${颜色[数学.地板(数学.随机()*3)]};
-边界半径：50%；
-动画：分解1s缓出；
-`;
-                文件.身体.appendChild(颗粒);
-                setTimeout(()=>颗粒.移除(),1000);
+    <script>
+        function showFireworks() {
+            const colors = ['#FF1493', '#FF4500', '#FFD700'];
+            for(let i=0; i<50; i++) {
+                const particle = document.createElement('div');
+                particle.style = `
+                    position: fixed;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    width: 5px;
+                    height: 5px;
+                    background: ${colors[Math.floor(Math.random()*3)]};
+                    border-radius: 50%;
+                    animation: explode 1s ease-out;
+                `;
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 1000);
             }
         }
 
         // 添加样式动画
-        Const 风格=文件.createElement('样式');
-        风格.textContent=`
-@keyframes 分解{
-0%{转换：比例(1)；不透明度：1；}
-100%{transform:scale(3)；不透明度：0；}
-}
-`;
-        文件.头.appendChild(风格);
-    </脚本>
-</身体>
-</超文本标记语言>
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes explode {
+                0% { transform: scale(1); opacity: 1; }
+                100% { transform: scale(3); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
  
