@@ -1,0 +1,89 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>刘微生日快乐！</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #FF69B4, #FFB6C1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: '微软雅黑';
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255,20,147,0.3);
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #FF1493;
+            animation: glow 2s infinite;
+        }
+        .name {
+            font-size: 3em;
+            color: #FF4500;
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px pink;
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #FF69B4; }
+            50% { text-shadow: 0 0 30px #FF1493; }
+            100% { text-shadow: 0 0 10px #FF69B4; }
+        }
+        .hearts {
+            font-size: 2em;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hearts">💖🎂🎁</div>
+        <div class="name">刘 微</div>
+        <h1>生日快乐！</h1>
+        <p>愿你的每一天都充满阳光与欢笑</p>
+        <p>心想事成，永远十八岁！✨</p>
+        <button onclick="showFireworks()" style="margin-top:20px;padding:10px 20px;background:#FF69B4;border:none;color:white;border-radius:10px;">
+            点击绽放烟花
+        </button>
+    </div>
+
+    <script>
+        function showFireworks() {
+            const colors = ['#FF1493', '#FF4500', '#FFD700'];
+            for(let i=0; i<50; i++) {
+                const particle = document.createElement('div');
+                particle.style = `
+                    position: fixed;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    width: 5px;
+                    height: 5px;
+                    background: ${colors[Math.floor(Math.random()*3)]};
+                    border-radius: 50%;
+                    animation: explode 1s ease-out;
+                `;
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 1000);
+            }
+        }
+
+        // 添加样式动画
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes explode {
+                0% { transform: scale(1); opacity: 1; }
+                100% { transform: scale(3); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+ 
